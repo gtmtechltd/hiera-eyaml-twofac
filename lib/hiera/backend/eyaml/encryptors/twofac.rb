@@ -13,7 +13,7 @@ class Hiera
 
         class Twofac < Encryptor
 
-          VERSION = "0.1"
+          VERSION = "0.2"
 
           self.tag = "TWOFAC"
           self.options = {
@@ -32,8 +32,6 @@ class Hiera
 
           def self.encrypt plaintext
  
-            password = Hiera::Backend::Eyaml::Encryptors::TwofacUtils::Password.obtain
-
             #TODO: delegate this to original pkcs7 plugin
             public_key = self.option :twofac_public_key
             raise StandardError, "twofac_public_key is not defined" unless public_key

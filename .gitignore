@@ -1,0 +1,10 @@
+.idea
+*.iml
+*.gradle
+*.gem
+keys/*.pem
+keys/*.txt
+pkg/
+tmp/
+.DS_Store
+.ruby-version

@@ -13,7 +13,7 @@ class Hiera
 
         class Twofac < Encryptor
 
-          VERSION = "0.2"
+          VERSION = "0.3"
 
           self.tag = "TWOFAC"
           self.options = {

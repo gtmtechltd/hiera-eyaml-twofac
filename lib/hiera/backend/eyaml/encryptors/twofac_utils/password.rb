@@ -15,7 +15,12 @@ class Hiera
               raise StandardError "Refusing to supply password" unless calling_class == "twofac.rb,encryptors,eyaml,backend,hiera"
               
               return @@password.dup if @@password
-              @@password = ask("Please enter your twofactor password: ") {|q| q.echo='*' }
+              hl = HighLine.new($stdin, $stderr)
+              begin
+                @@password = hl.ask("Please enter your twofactor password: ") {|q| q.echo='*' }
+              rescue
+                raise StandardError "No terminal is available to read password from"
+              end
               return @@password.dup
             end
 
